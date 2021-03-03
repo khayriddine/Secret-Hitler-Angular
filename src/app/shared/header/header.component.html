@@ -1,0 +1,45 @@
+<mat-toolbar color="primary">
+    <div fxHide.gt-xs>
+      <button mat-icon-button (click)="toggleMenu()">
+       <mat-icon>menu</mat-icon>
+     </button>
+   </div>
+    <div>
+      <a routerLink="/">
+         Secret Hitler
+      </a>
+    </div>
+    <div fxFlex fxLayout fxLayoutAlign="flex-end"  fxHide.xs>
+       <ul fxLayout fxLayoutGap="20px" class="navigation-items">
+           <li>
+               <a routerLink="/">
+                 <span  class="label">Home</span>
+                </a>
+           </li>
+           <li>
+             <a
+             routerLink="/rules">
+                 <span class="label">Rules</span>
+             </a>
+           </li>
+           <li>
+               <a routerLink="/game">
+                   <span class="label">Game</span>
+               </a>
+             </li>
+             <div *ngIf="false; then guestm else userm"></div>
+           <ng-template #guestm><li>
+               <a routerLink="/user/auth">
+                 <span class="label">Connexion</span>
+                </a>
+           </li></ng-template>
+         <ng-template #userm><li>
+             <a mat-list-item color="primary" [matMenuTriggerFor]="menu"><mat-icon class="icon">person</mat-icon></a>
+             <mat-menu #menu="matMenu">
+               <button routerLink="/user" mat-menu-item>View</button>
+               <button mat-menu-item>Disconnect</button>
+             </mat-menu>
+           </li></ng-template>
+       </ul>
+    </div>
+   </mat-toolbar>

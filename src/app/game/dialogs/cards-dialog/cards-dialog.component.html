@@ -1,0 +1,17 @@
+<div *ngIf="data.action == 'discard'; else peekBlock">
+    <h3>Discard a Card</h3>
+<ul >
+  <li   *ngFor="let card of data.cards; let i = index"><input type="radio" name="discarded" [(ngModel)]="discarded" [id]="'cb'+i" [value]="i"/>
+    <label [for]="'cb'+i"><img [src]="cardPicture(card.cardType)" /></label>
+  </li>
+</ul>
+<button mat-button [mat-dialog-close]="discarded" cdkFocusInitial>Confirm</button>
+</div>
+<ng-template #peekBlock>
+    <h3>Peek next three Cards</h3>
+    <ul>
+        <li *ngFor="let card of data.cards; let i = index">
+          <label [for]="'cb'+i"><img [src]="cardPicture(card.cardType)" /></label>
+        </li>
+      </ul>
+</ng-template>

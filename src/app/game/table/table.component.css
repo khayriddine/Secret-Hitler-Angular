@@ -1,0 +1,16 @@
+.container {
+  height: 100%;
+}
+
+.liberal-board {
+  background-image: url("/assets/images/liberalboard.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  height: 100%;
+}
+.fascist-board {
+  background-image: url("/assets/images/fascistboard.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  height: 100%;
+}

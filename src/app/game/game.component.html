@@ -1,1 +1,17 @@
-<p>game works!</p>
+<div class="container" fxLayout="column">
+    <div class="top"  fxFlex="80px" fxLayout fxLayoutAlign="space-around center" >
+        <app-player-card *ngFor="let item of top_players_indexes; let i = index;" (click)="chosePlayer(item)" [player]="players[item]" [showRole]="players_toggle_infos[item]"></app-player-card>
+    </div>
+    <div class="middle"  fxFlex fxLayout>
+        <div class="left"  fxFlex="80px" fxLayoutAlign="center center">
+            <app-player-card (click)="chosePlayer(mid_players_indexes[0])" [player]="players[mid_players_indexes[0]]" [showRole]="players_toggle_infos[mid_players_indexes[0]]"></app-player-card>
+        </div>
+        <div class="board" fxFlex><app-table></app-table></div>
+        <div class="right"  fxFlex="80px" fxLayoutAlign="center center">
+            <app-player-card (click)="chosePlayer(mid_players_indexes[1])" [player]="players[mid_players_indexes[1]]" [showRole]="players_toggle_infos[mid_players_indexes[1]]"></app-player-card>
+        </div>
+    </div>
+    <div class="bot" fxFlex="80px" fxLayoutAlign="space-around center">
+        <app-player-card *ngFor="let item of bot_players_indexes; let i = index;" (click)="chosePlayer(item)" [player]="players[item]" [showRole]="players_toggle_infos[item]" ></app-player-card>
+    </div>
+</div>

@@ -1,0 +1,22 @@
+.container {
+  height: 100%;
+  display: block;
+  background-color: black;
+}
+.top {
+  justify-content: center;
+  align-items: center;
+}
+.middle {
+}
+
+.bot {
+  align-items: center;
+}
+.left {
+}
+.right {
+}
+app-player-card {
+  cursor: pointer;
+}

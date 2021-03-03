@@ -1,0 +1,21 @@
+.container {
+  width: 80px;
+  height: 80px;
+  background-color: khaki;
+}
+img {
+  height: 60px;
+  width: auto;
+}
+.normal {
+  color: white;
+}
+.dead {
+  color: red;
+}
+.president {
+  color: greenyellow;
+}
+.chancellor {
+  color: aqua;
+}

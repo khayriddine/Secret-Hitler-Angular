@@ -1,0 +1,24 @@
+<a mat-list-item routerLink="/">
+    <mat-icon class="icon">home</mat-icon>
+    <span class="label">Home</span>
+  </a>
+  <a mat-list-item
+      routerLink="/rules">
+    <mat-icon class="icon">gavel</mat-icon>
+      <span class="label">Rules</span>
+  </a>
+  <a mat-list-item
+    routerLink="/game">
+    <mat-icon class="icon">dashboard</mat-icon>
+    <span class="label">Game</span>
+  </a>
+  <div *ngIf="true; then guest else user"></div>
+  <ng-template #guest><a routerLink="/user/auth">
+    <span class="label">Connexion</span>
+   </a></ng-template>
+<ng-template #user><a alignItems="left" mat-list-item  [matMenuTriggerFor]="menu">
+  <mat-icon class="icon">person</mat-icon><span class="label">Profile</span></a>
+<mat-menu #menu="matMenu">
+<button routerLink="/user" mat-menu-item>View</button>
+<button  mat-menu-item>Disconnect</button>
+</mat-menu></ng-template>

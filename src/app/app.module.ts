@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FlexLayoutModule } from '@angular/flex-layout';
+
 
 import { AppRoutingModule } from './app-routing.module';
 
 import { MaterialModule } from './material-modules';
-
+import { SharedModule } from './shared/shared.module';
 import { GameModule } from './game/game.module';
 
 import { AppComponent } from './app.component';
@@ -24,7 +24,7 @@ import { RulesComponent } from './rules/rules.component';
     BrowserAnimationsModule,
     MaterialModule,
     AppRoutingModule,
-    FlexLayoutModule,
+    SharedModule,
     GameModule
   ],
   providers: [],

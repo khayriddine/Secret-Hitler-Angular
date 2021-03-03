@@ -1,80 +1,9 @@
-<mat-sidenav-container>
-  <mat-sidenav  #sidenav role="navigation">
-   <mat-nav-list>
-    <a mat-list-item routerLink="/">
-      <mat-icon class="icon">home</mat-icon>
-      <span class="label">Home</span>
-    </a>
-    <a mat-list-item
-        routerLink="/rules">
-      <mat-icon class="icon">gavel</mat-icon>
-        <span class="label">Rules</span>
-    </a>
-    <a mat-list-item
-      routerLink="/game">
-      <mat-icon class="icon">dashboard</mat-icon>
-      <span class="label">Game</span>
-    </a>
-    <div *ngIf="false; then guest else user"></div>
-    <ng-template #guest><a  mat-list-item t>
-      <mat-icon class="icon">person</mat-icon>
-      <span class="label">Connexion</span>
-    </a></ng-template>
-  <ng-template #user><a mat-list-item  [matMenuTriggerFor]="menu">Profile</a>
-<mat-menu #menu="matMenu">
-  <button routerLink="/user" mat-menu-item>View</button>
-  <button  mat-menu-item>Disconnect</button>
-</mat-menu></ng-template>
-    </mat-nav-list>
-  </mat-sidenav>
-  <mat-sidenav-content>
-    <mat-toolbar color="primary">
-     <div fxHide.gt-xs>
-       <button mat-icon-button (click)="sidenav.toggle()">
-        <mat-icon>menu</mat-icon>
-      </button>
-    </div>
-     <div>
-       <a routerLink="/">
-          Secret Hitler
-       </a>
-     </div>
-     <div fxFlex fxLayout fxLayoutAlign="flex-end"  fxHide.xs>
-        <ul fxLayout fxLayoutGap="20px" class="navigation-items">
-            <li>
-                <a routerLink="/">
-                  <span  class="label">Home</span>
-                 </a>
-            </li>
-            <li>
-              <a
-              routerLink="/rules">
-                  <span class="label">Rules</span>
-              </a>
-            </li>
-            <li>
-                <a routerLink="/game">
-                    <span class="label">Game</span>
-                </a>
-              </li>
-              <div *ngIf="true; then guest else user"></div>
-            <ng-template #guest><li>
-                <a routerLink="/user/auth">
-                  <span class="label">Connexion</span>
-                 </a>
-            </li></ng-template>
-          <ng-template #user><li>
-              <a mat-list-item color="primary" [matMenuTriggerFor]="menu">Profile</a>
-              <mat-menu #menu="matMenu">
-                <button routerLink="/user" mat-menu-item>View</button>
-                <button mat-menu-item>Disconnect</button>
-              </mat-menu>
-            </li></ng-template>
-        </ul>
-     </div>
-    </mat-toolbar>
-    <main>
-      <router-outlet></router-outlet>
-    </main>
-  </mat-sidenav-content>
-</mat-sidenav-container>
+<app-header (toggleEvent)="toggleSidebar()"></app-header>
+<mat-drawer-container>
+  <mat-drawer mode="over" [opened]="toggleStatus">
+    <app-sidebar></app-sidebar>
+  </mat-drawer>
+  <mat-drawer-content>
+    <router-outlet></router-outlet>
+  </mat-drawer-content>
+</mat-drawer-container>
